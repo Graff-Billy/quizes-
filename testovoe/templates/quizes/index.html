@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{%block title %}{{ quiz.quiz_name }}{% endblock %}
+
+{%block content%}
+
+<form action="{% url 'quizes:current_user' %}" method="POST" style="text-align: center;">
+
+
+    {% csrf_token %}
+
+    <input type="text" id="name" class="fadeIn second" name="name" placeholder="Input name" mt-2>
+    <br>
+    <br>
+    <input type="submit" class="fadeIn fourth" value="Пройти опросы">
+    <h4>или</h4>
+    <input type="submit" class="fadeIn fourth" value="Пройти анонимно">
+  </form>
+
+
+
+{%endblock%}

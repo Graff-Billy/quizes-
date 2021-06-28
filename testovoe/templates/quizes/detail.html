@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{%block title %}{{ quiz.quiz_name }}{% endblock %}
+
+{%block content%}
+
+<h2>{{ quiz.quiz_name }}</h2>
+
+{% if questions_list %}
+    {% for c in questions_list %}
+        <form action="#" method="POST">
+            <div class="alert alert-warning mt-2">
+                <p>Вопрос номер {{c.id}}</p>
+                <h2>{{c.question_text}}</h2>
+                {% if c.question_type == 1 %}
+                    <input type="text" required placeholder="Введите ответ" name="text">
+                {% elif c.question_type == 2%}
+                    <label><input type="radio" checked name="var1"/> Вариант 1</label> <label><input type="radio" name="var2"/> вариант2</label>
+                {% elif c.question_type == 3 %}
+                    <label><input type="checkbox"/ name=""> Вариант 1</label>
+                    <label><input type="checkbox"/ name=""> Вариант 2</label>
+                {% endif%}
+            </div>
+        </form>
+    {% endfor %}
+{% endif %}
+
+{%endblock%}

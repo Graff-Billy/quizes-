@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{%block title %}Список опросов{% endblock %}
+
+{%block content%}
+
+    {% if quizes_list%}
+
+        {% for a in quizes_list%}
+            <div class="alert alert-warning mt-2">
+               <h3>{{a.quiz_name}}</h3>
+            <p>{{a.quiz_description}}</p>
+
+            <a href="{% url 'quizes:detail' a.id %}"><input type="submit" class="fadeIn fourth" value="Пройти опрос"></a>
+            </div>
+        {% endfor %}
+            
+    {% endif %}
+
+{%endblock%}
